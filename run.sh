@@ -28,8 +28,8 @@ esac
   --showgrid true \
   --imageformat "webp" \
   --dimension overworld \
-  --zoomout 0 \
-  --zoomin 0 \
+  --zoomout 3 \
+  --zoomin 1 \
   --background "#333333" \
 
 
