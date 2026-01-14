@@ -49,7 +49,7 @@ const PINS = {
 
 const point = (data) => {
     return {
-        image: PINS[data.type] || 'other',
+        image: PINS[data.type] || 'other.png',
         imageScale: 0.4,
         textColor: "white",
         offsetX: 0,
@@ -111,12 +111,6 @@ UnminedCustomMarkers = {
             z: 83,
             text: "Abu Simba",
             type: '',
-        }),
-        point({
-            x: -630,
-            z: -205,
-            text: "SlipperyButton's\nisland",
-            type: 'other',
         }),
         point({
             x: 189,
