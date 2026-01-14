@@ -6,10 +6,11 @@ WEBHOOK_URL="$(cat "$WEBHOOK_FILE")"
 
 send_discord() {
   local msg="$1"
-  curl -fsS -X POST \
-    -H "Content-Type: application/json" \
-    -d "$(printf '{"content":%q}' "$msg")" \
-    "$WEBHOOK_URL" >/dev/null
+  python3 - "$msg" <<'PY' | curl -fsS -X POST -H "Content-Type: application/json" -d @- "$WEBHOOK_URL" >/dev/null
+import json, sys
+msg = sys.argv[1]
+print(json.dumps({"content": msg}))
+PY
 }
 
 START_TS="$(date -Is)"
