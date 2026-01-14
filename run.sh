@@ -29,7 +29,7 @@ esac
   --imageformat "webp" \
   --dimension overworld \
   --zoomout 3 \
-  --zoomin 1 \
+  --zoomin 2 \
   --background "#333333" \
 
 
