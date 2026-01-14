@@ -14,16 +14,16 @@ PY
 }
 
 START_TS="$(date -Is)"
-send_discord "🗺️ Map import started on $(hostname) at ${START_TS}"
+send_discord "🗺️ Map import started"
 
 on_exit() {
   local code=$?
   local END_TS
   END_TS="$(date -Is)"
   if [ "$code" -eq 0 ]; then
-    send_discord "✅ Map import completed successfully at ${END_TS}"
+    send_discord "✅ Map import completed successfully"
   else
-    send_discord "❌ Map import FAILED (exit code ${code}) at ${END_TS}. Check logs."
+    send_discord "❌ Map import FAILED (exit code ${code}). Check logs."
   fi
 }
 trap on_exit EXIT
