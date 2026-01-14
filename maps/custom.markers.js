@@ -41,6 +41,7 @@ const PINS = {
     other: 'other.png',
     base: 'player-base.png',
     subway: 'subway-stop.png',
+    netherice: 'netherice-stop.png',
     trialChamber: 'trial-chamber.png',
 }
 
@@ -79,7 +80,7 @@ UnminedCustomMarkers = {
         //     imageAnchor: [0.5, 1],
         //     imageScale: 0.5,
         //     text: "Marker with text",
-        //     textColor: "red", 
+        //     textColor: "red",
         //     offsetX: 0,
         //     offsetY: 20,
         //     font: "bold 20px Calibri,sans serif",
@@ -89,10 +90,10 @@ UnminedCustomMarkers = {
         // {
         //     x: 200,
         //     z: 200,
-        //     text: "Text only", 
-        //     textColor: "yellow", 
+        //     text: "Text only",
+        //     textColor: "yellow",
         //     offsetX: 0,
-        //     offsetY: 0, 
+        //     offsetY: 0,
         //     font: "bold 50px Calibri,sans serif",
         // },
 
@@ -318,6 +319,102 @@ UnminedCustomMarkers = {
             z: -852,
             text: "BamseJoM's\nbase",
             type: 'base',
+        }),
+        point({
+            x: -120,
+            z: 3004,
+            text: "South",
+            type: 'netherice',
+        }),
+        point({
+            x: -109,
+            z: 5298,
+            text: "Great Southern Ocean",
+            type: 'netherice',
+        }),
+        point({
+            x: -2744,
+            z: 9621,
+            text: "Deep Down Diamonds",
+            type: 'netherice',
+        }),
+        point({
+            x: -194,
+            z: 9394,
+            text: "Geode",
+            type: 'netherice',
+        }),
+        point({
+            x: 5891,
+            z: 5124,
+            text: "The Forgotten Forest",
+            type: 'netherice',
+        }),
+        point({
+            x: -5085,
+            z: 5258,
+            text: "The Forbidden Lands",
+            type: 'netherice',
+        }),
+        point({
+            x: -3501,
+            z: 3051,
+            text: "Kensington Falls",
+            type: 'netherice',
+        }),
+        point({
+            x: -926,
+            z: -2841,
+            text: "Northern Ocean",
+            type: 'netherice',
+        }),
+        point({
+            x: -108,
+            z: -7407,
+            text: "The Northern Frontier",
+            type: 'netherice',
+        }),
+        point({
+            x: 1742,
+            z: 319,
+            text: "East",
+            type: 'netherice',
+        }),
+        point({
+            x: 5799,
+            z: 290,
+            text: "Razorback Hills",
+            type: 'netherice',
+        }),
+        point({
+            x: 5837,
+            z: 3825,
+            text: "Principalities of Shar",
+            type: 'netherice',
+        }),
+        point({
+            x: -3309,
+            z: 311,
+            text: "West",
+            type: 'netherice',
+        }),
+        point({
+            x: -5928,
+            z: 299,
+            text: "Westerly Rock",
+            type: 'netherice',
+        }),
+        point({
+            x: -5961,
+            z: -3106,
+            text: "Westport",
+            type: 'netherice',
+        }),
+        point({
+            x: -7458,
+            z: 558,
+            text: "Acazniac Tribase",
+            type: 'netherice',
         }),
 
 
