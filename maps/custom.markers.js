@@ -43,6 +43,7 @@ const PINS = {
     subway: 'subway-stop.png',
     netherice: 'netherice-stop.png',
     trialChamber: 'trial-chamber.png',
+    disassembledTrialChamber: 'disassembled-chambers.png',
 }
 
 const point = (data) => {
@@ -411,13 +412,78 @@ UnminedCustomMarkers = {
             type: 'netherice',
         }),
         point({
+            x: -2973,
+            z: -1011,
+            type: 'trialChamber',
+        }),
+        point({
             x: -7458,
             z: 558,
             text: "Acazniac Tribase",
             type: 'netherice',
         }),
-
-
+        point({
+            x: -5220, 
+            z: 1195,
+            type: 'trialChamber',
+        }),
+        point({
+            x: -7390, 
+            z: -280,
+            type: 'trialChamber',
+        }),
+        point({
+            x: -10880, 
+            z: -240,
+            type: 'trialChamber',
+        }),
+        point({
+            x: -10720, 
+            z: -960,
+            type: 'trialChamber',
+        }),
+        point({
+            x: 3370, 
+            z: 630,
+            type: 'trialChamber',
+        }),
+        point({
+            x: 2360, 
+            z: 100,
+            type: 'trialChamber',
+        }),
+        point({
+            x: 2735, 
+            z: 2990,
+            type: 'trialChamber',
+        }),
+        point({
+            x: 785, 
+            z: -1900,
+            type: 'trialChamber',
+        }),
+        point({
+            x: 1280, 
+            z: -7282,
+            type: 'trialChamber',
+        }),
+        point({
+            x: 5635, 
+            z: -7366,
+            type: 'trialChamber',
+        }),
+        point({
+            x: 2900, 
+            z: 4114,
+            type: 'trialChamber',
+        }),
+        point({
+            x: 1090,
+            z: 2735,
+            text: "dismantled",
+            type: 'disassembledTrialChamber',
+        }),
         // do not delete the following two closing brackets
     ]
 }
+
