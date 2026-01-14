@@ -112,6 +112,12 @@ UnminedCustomMarkers = {
             type: '',
         }),
         point({
+            x: -630,
+            z: -205,
+            text: "SlipperyButton's\nisland",
+            type: 'other',
+        }),
+        point({
             x: 189,
             z: 127,
             text: "The first village",
@@ -121,7 +127,7 @@ UnminedCustomMarkers = {
             x: 0,
             z: 320,
             text: "HappyLlama999's cobblestone\ncastle complex",
-            type: 'village',
+            type: 'base',
         }),
         point({
             x: 30,
@@ -486,4 +492,5 @@ UnminedCustomMarkers = {
         // do not delete the following two closing brackets
     ]
 }
+
 
