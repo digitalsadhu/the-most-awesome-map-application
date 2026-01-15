@@ -2,8 +2,8 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0;    
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;    
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
 }
 
@@ -11,6 +11,38 @@ html, body {
     height: 100%;
     width: 100%;
     image-rendering: pixelated;
+}
+
+search {
+    position: relative;
+}
+
+search input {
+    position: absolute;
+    top: 90svh;
+    left: 16px;
+    right: 16px;
+    height: 32px;
+    min-width: 280px;
+    z-index: 1;
+}
+
+@media screen and (width >= 900px) {
+    search input {
+        left: 64px;
+        top: 16px;
+        right: unset;
+    }
+}
+
+search label {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 .mouseposition {
@@ -45,7 +77,6 @@ div.ol-mouse-position {
         0 1px 0 black,
         -1px 0 0 black,
         0 -1px 0 black;
-    0px 0px 8px black;
 }
 
 .ol-scale-singlebar-odd {
