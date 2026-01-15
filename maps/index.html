@@ -30,13 +30,19 @@
 
     <!-- uNmINeD JS and CSS -->
     <script type="text/javascript" src="unmined.js"></script>
+    <script src="fuzzysort.min.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
-        
-    </style>
 
 </head>
 
 <body>
+    <search>
+        <form name="search">
+            <label for="poi">Search for a point of interest</label>
+            <input list="markerlist" placeholder="Search for a point of interest" type="search" id="poi" name="poi">
+            <datalist id="markerlist"></datalist>
+        </form>
+    </search>
     <div id="map"></div>
 
     <script type="text/javascript">
@@ -46,7 +52,7 @@
         if (UnminedCustomMarkers && UnminedCustomMarkers.isEnabled && UnminedCustomMarkers.markers) {
             UnminedMapProperties.markers = UnminedMapProperties.markers.concat(UnminedCustomMarkers.markers);
         }
-        
+
         if (UnminedPlayers && UnminedPlayers.length > 0) {
             UnminedMapProperties.playerMarkers = Unmined.createPlayerMarkers(UnminedPlayers);
         }
@@ -54,6 +60,26 @@
         const mapElement = document.getElementById('map');
         const unmined = new Unmined(mapElement, UnminedMapProperties, UnminedRegions);
 
+        const datalist = document.getElementById("markerlist");
+        for (const marker of UnminedMapProperties.markers) {
+            if (!marker.text) continue;
+            const listentry = document.createElement("option");
+            listentry.setAttribute("value", marker.text.replaceAll("\n", " "));
+            datalist.appendChild(listentry);
+        }
+
+        document.forms.search.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const name = document.getElementById("poi").value;
+            const results = fuzzysort.go(name, UnminedMapProperties.markers, { key: 'text' });
+            if (results.length) {
+                const marker = results[0].obj;
+                unmined.center([
+                    marker.x,
+                    marker.z,
+                ]);
+            }
+        });
 
     </script>
 </body>
