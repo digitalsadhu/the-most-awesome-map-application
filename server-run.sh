@@ -42,3 +42,6 @@ git pull --ff-only >/dev/null 2>&1 || true
 
 # Run generator
 ./run.sh "$WORLD_PATH" >>"$LOG_DIR/run.out.log" 2>>"$LOG_DIR/run.err.log"
+
+git checkout ./maps/index.html
+git checkout ./maps/index.css
