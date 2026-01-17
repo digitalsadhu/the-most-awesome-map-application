@@ -58,9 +58,10 @@
 
 minecraft:myblock = #ff0000
 *red_sandstone* = #CE4900
-*nether_brick* = #8B0000
+nether_brick* = #48202B
 *granite* = #C27E6A
 normal_stone_slab = #7D7D7D
 stone_brick_wall = #9E9E9E
 stone_bricks = #9E9E9E
 *cobblestone* = #B2B2B2
+brick_block = #CD5C5C
