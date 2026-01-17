@@ -65,3 +65,5 @@ stone_brick_wall = #9E9E9E
 stone_bricks = #9E9E9E
 *cobblestone* = #B2B2B2
 brick_block = #CD5C5C
+brick_stairs = #CD5C5C
+brick_slab = #CD5C5C
