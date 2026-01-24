@@ -484,6 +484,12 @@ UnminedCustomMarkers = {
             text: "dismantled\ntrial\nchamber",
             type: 'disassembledTrialChamber',
         }),
+        point({
+            x: -296,
+            z: 435,
+            text: "Richie's\nOslo\nApartment",
+            type: 'base',
+        }),
         // do not delete the following two closing brackets
     ]
 }
