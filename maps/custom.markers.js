@@ -317,8 +317,8 @@ UnminedCustomMarkers = {
             type: 'base',
         }),
         point({
-            x: -302,
-            z: -852,
+            x: -333,
+            z: -849,
             text: "BamseJoM's\nbase",
             type: 'base',
         }),
@@ -489,6 +489,12 @@ UnminedCustomMarkers = {
             z: 435,
             text: "Richie's\nOslo\nApartment",
             type: 'base',
+        }),
+        point({
+            x: 6058,
+            z: 2006,
+            text: "Blaze\nFarm",
+            type: 'farm',
         }),
         // do not delete the following two closing brackets
     ]
