@@ -494,11 +494,12 @@ UnminedCustomMarkers = {
             x: 6058,
             z: 2006,
             text: "Blaze\nFarm",
-            type: 'farm',
+            type: 'netherice',
         }),
         // do not delete the following two closing brackets
     ]
 }
+
 
 
 
