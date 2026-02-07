@@ -496,9 +496,22 @@ UnminedCustomMarkers = {
             text: "Blaze\nFarm",
             type: 'netherice',
         }),
+        point({
+            x: 190,
+            z: -161,
+            text: "The End Observatory",
+            type: "",
+        }),
+        point({
+            x: -293,
+            z: 733,
+            text: "Villager breeder",
+            type: "farm",
+        }),
         // do not delete the following two closing brackets
     ]
 }
+
 
 
 
