@@ -25,6 +25,9 @@ on_exit() {
   else
     send_discord "❌ Map import FAILED (exit code ${code}). Check logs."
   fi
+  # always run so we don't get a broken search UI when the mapper fails
+  git checkout ./maps/index.html
+  git checkout ./maps/index.css
 }
 trap on_exit EXIT
 
@@ -42,6 +45,3 @@ git pull --ff-only >/dev/null 2>&1 || true
 
 # Run generator
 ./run.sh "$WORLD_PATH" >>"$LOG_DIR/run.out.log" 2>>"$LOG_DIR/run.err.log"
-
-git checkout ./maps/index.html
-git checkout ./maps/index.css
