@@ -28,6 +28,8 @@ on_exit() {
   # always run so we don't get a broken search UI when the mapper fails
   git checkout ./maps/index.html
   git checkout ./maps/index.css
+  git checkout ./maps/nether/index.html
+  git checkout ./maps/nether/index.css
 }
 trap on_exit EXIT
 

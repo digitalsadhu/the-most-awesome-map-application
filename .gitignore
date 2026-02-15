@@ -1,3 +1,7 @@
 maps/tiles
 maps/lib
 maps/unmined*
+
+maps/nether/tiles
+maps/nether/lib
+maps/nether/unmined*
