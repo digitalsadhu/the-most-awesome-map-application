@@ -34,7 +34,7 @@ esac
 
 "$CLI_BIN" web render \
   --world "$WORLD_PATH" \
-  --output "./nether" \
+  --output "./maps/nether" \
   --dimension nether \
   --topY 88 \
   --gndxray true \
