@@ -29,7 +29,6 @@ on_exit() {
   git checkout ./maps/index.html
   git checkout ./maps/index.css
   git checkout ./maps/nether/index.html
-  git checkout ./maps/nether/index.css
 }
 trap on_exit EXIT
 
