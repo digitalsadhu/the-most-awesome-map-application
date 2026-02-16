@@ -6,3 +6,8 @@ maps/nether/tiles
 maps/nether/lib
 maps/nether/unmined*
 maps/nether/index.css
+
+maps/end/tiles
+maps/end/lib
+maps/end/unmined*
+maps/end/index.css

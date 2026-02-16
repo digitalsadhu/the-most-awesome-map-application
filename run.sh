@@ -44,6 +44,16 @@ esac
   --zoomin 3 \
   --background "#333333"
 
+"$CLI_BIN" web render \
+  --world "$WORLD_PATH" \
+  --output "./maps/end" \
+  --showgrid true \
+  --imageformat "webp" \
+  --dimension end \
+  --zoomout 3 \
+  --zoomin 3 \
+  --background "#333333"
+
 #   --world              Required. Game folder to read.
 #   --dimension          Dimension name or number to read (overworld, nether, end).
 #   --imageformat        (Default: Jpeg) Image format (png, jpeg, bmp, webp, tiff, pbm). Default is jpeg.
