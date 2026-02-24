@@ -60,7 +60,7 @@
 
     <script type="text/javascript">
 
-        document.title = UnminedMapProperties.worldName + " - " + document.title;
+        document.title = UnminedMapProperties.worldName.replace(" - Copy", "") + " - " + document.title;
 
         if (UnminedCustomMarkers && UnminedCustomMarkers.isEnabled && UnminedCustomMarkers.markers) {
             UnminedMapProperties.markers = UnminedMapProperties.markers.concat(UnminedCustomMarkers.markers);
