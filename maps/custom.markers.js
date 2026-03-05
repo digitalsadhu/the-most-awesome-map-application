@@ -514,9 +514,16 @@ UnminedCustomMarkers = {
             text: "Glow Squid farm",
             type: "farm",
         }),
+        point({
+            x: 1747,
+            z: 384,
+            type: "farm",
+            text: "Armadillo sanctuary".
+        }),
         // do not delete the following two closing brackets
     ]
 }
+
 
 
 
