@@ -520,16 +520,30 @@ UnminedCustomMarkers = {
             type: "farm",
             text: "Armadillo sanctuary",
         }),
+        point({
+            x: 2983,
+            z: -2450,
+            type: "village",
+            text: "Poppy village",
+        }),
+        point({
+            x: 1284,
+            z: -2220,
+            type: "",
+            text: "Ocean monument",
+        }),
+        point({
+            x: 2363,
+            z: -328,
+            type: "",
+            text: "Desert temple",
+        }),
+        point({
+            x: 2070,
+            z: -32,
+            type: "",
+            text: "Desert well",
+        }),
         // do not delete the following two closing brackets
     ]
 }
-
-
-
-
-
-
-
-
-
-
