@@ -518,11 +518,12 @@ UnminedCustomMarkers = {
             x: 1747,
             z: 384,
             type: "farm",
-            text: "Armadillo sanctuary".
+            text: "Armadillo sanctuary",
         }),
         // do not delete the following two closing brackets
     ]
 }
+
 
 
 
