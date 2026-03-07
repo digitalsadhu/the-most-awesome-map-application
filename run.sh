@@ -23,6 +23,7 @@ case "$(uname -s)" in
 esac
 
 "$CLI_BIN" web render \
+  --log-level warning \
   --world "$WORLD_PATH" \
   --output "./maps" \
   --showgrid true \
@@ -33,6 +34,7 @@ esac
   --background "#333333"
 
 "$CLI_BIN" web render \
+  --log-level warning \
   --world "$WORLD_PATH" \
   --output "./maps/nether" \
   --dimension nether \
@@ -45,6 +47,7 @@ esac
   --background "#333333"
 
 "$CLI_BIN" web render \
+  --log-level warning \
   --world "$WORLD_PATH" \
   --output "./maps/end" \
   --showgrid true \
