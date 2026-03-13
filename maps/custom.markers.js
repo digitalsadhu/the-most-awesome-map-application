@@ -45,6 +45,7 @@ const PINS = {
     trialChamber: 'trial-chamber.png',
     disassembledTrialChamber: 'disassembled-chambers.png',
     village: 'village.png',
+    oceanMonument: 'other.png',
 }
 
 const point = (data) => {
@@ -529,7 +530,7 @@ UnminedCustomMarkers = {
         point({
             x: 1284,
             z: -2220,
-            type: "",
+            type: "oceanMonument",
             text: "Ocean monument",
         }),
         point({
@@ -544,6 +545,25 @@ UnminedCustomMarkers = {
             type: "",
             text: "Desert well",
         }),
+        point({
+            x: -1448,
+            z: 3257,
+            type: "oceanMonument",
+            text: "Ocean monument",
+        }),
+        point({
+            x: -1769,
+            z: 3255,
+            type: "oceanMonument",
+            text: "Ocean monument",
+        }),
+        point({
+            x: -2028,
+            z: 5271,
+            type: "",
+            text: "Pink flower",
+        }),
         // do not delete the following two closing brackets
     ]
 }
+
