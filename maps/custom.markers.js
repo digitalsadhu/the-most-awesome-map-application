@@ -537,7 +537,7 @@ UnminedCustomMarkers = {
             x: 2363,
             z: -328,
             type: "",
-            text: "Desert temple",
+            text: "Desert pyramid",
         }),
         point({
             x: 2070,
