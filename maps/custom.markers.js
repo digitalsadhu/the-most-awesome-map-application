@@ -528,36 +528,6 @@ UnminedCustomMarkers = {
             text: "Poppy village",
         }),
         point({
-            x: 1284,
-            z: -2220,
-            type: "oceanMonument",
-            text: "Ocean monument",
-        }),
-        point({
-            x: 2363,
-            z: -328,
-            type: "",
-            text: "Desert pyramid",
-        }),
-        point({
-            x: 2070,
-            z: -32,
-            type: "",
-            text: "Desert well",
-        }),
-        point({
-            x: -1448,
-            z: 3257,
-            type: "oceanMonument",
-            text: "Ocean monument",
-        }),
-        point({
-            x: -1769,
-            z: 3255,
-            type: "oceanMonument",
-            text: "Ocean monument",
-        }),
-        point({
             x: -2028,
             z: 5271,
             type: "",
