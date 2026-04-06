@@ -283,7 +283,7 @@ UnminedCustomMarkers = {
         }),
         point({
             x: 343,
-            z: 705,
+            z: 690,
             text: "The\nend\nportal",
             type: '',
         }),
