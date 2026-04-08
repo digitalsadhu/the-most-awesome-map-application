@@ -150,8 +150,8 @@ UnminedCustomMarkers = {
             type: 'farm',
         }),
         point({
-            x: -7,
-            z: 34,
+            x: -8,
+            z: 30,
             text: "Home",
             type: 'netherice',
         }),
