@@ -533,6 +533,12 @@ UnminedCustomMarkers = {
             type: "",
             text: "Pink flower",
         }),
+        point({
+            x: -789,
+            z: 1232,
+            type: "",
+            text: "Star trader (Y320)",
+        }),
         // do not delete the following two closing brackets
     ]
 }
