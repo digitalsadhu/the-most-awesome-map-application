@@ -486,6 +486,12 @@ UnminedCustomMarkers = {
             type: 'disassembledTrialChamber',
         }),
         point({
+            x: -4054,
+            z: -5246,
+            text: "dismantled\ntrial\nchamber",
+            type: 'disassembledTrialChamber',
+        }),
+        point({
             x: -296,
             z: 435,
             text: "Richie's\nOslo\nApartment",
