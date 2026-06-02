@@ -545,6 +545,12 @@ UnminedCustomMarkers = {
             type: "",
             text: "Star trader (Y320)",
         }),
+        point({
+            x: -325,
+            z: -555,
+            type: "farm",
+            text: "Most Awesome\nMycelium Manufactorium",
+        }),
         // do not delete the following two closing brackets
     ]
 }
