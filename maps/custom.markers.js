@@ -551,6 +551,18 @@ UnminedCustomMarkers = {
             type: "farm",
             text: "Most Awesome\nMycelium Manufactorium",
         }),
+        point({
+            x: 6189,
+            z: -3644,
+            type: "",
+            text: "Sulfur Caves",
+        }),
+        point({
+            x: 7739,
+            z: -3610,
+            type: "",
+            text: "Floating half-a-ship",
+        }),
         // do not delete the following two closing brackets
     ]
 }
