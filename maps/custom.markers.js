@@ -569,6 +569,12 @@ UnminedCustomMarkers = {
             type: "",
             text: "Sulfur Caves",
         }),
+        point({
+            x: -367,
+            z: -738,
+            type: "farm",
+            text: "Villager trading hall",
+        }),
         // do not delete the following two closing brackets
     ]
 }
