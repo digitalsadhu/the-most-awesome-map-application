@@ -30,17 +30,6 @@ UnminedCustomMarkers = {
     isEnabled: true,
 
     markers: [
-        point({ text: "To End portal", x: 36, z: 75, type: "portal" }),
-        point({ text: "Henry's castle", x: -12, z: 71, type: "portal" }),
-        point({ text: "Jonathan's base", x: 5, z: 31, type: "portal" }),
-        point({ text: "Matt's base", x: -27, z: 23, type: "portal" }),
-        point({ text: "Richie's base", x: -22, z: 9, type: "portal" }),
-        point({ text: "Docks", x: -30, z: 8, type: "portal" }),
-        point({ text: "Mik's base", x: -45, z: 2, type: "portal" }),
-        point({ text: "Dave's base", x: -24, z: -9, type: "portal" }),
-        point({ text: "Kiran's underwater base", x: -12, z: -24, type: "portal" }),
-        point({ text: "Dave's iron and gold farm", x: -24, z: -45, type: "portal" }),
-        point({ text: "PaleBlueDot's base", x: 5, z: -18, type: "portal" }),
         point({
             x: -13,
             z: 376,
