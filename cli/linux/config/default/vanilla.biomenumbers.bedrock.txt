@@ -84,3 +84,8 @@
 190 = minecraft:deep_dark
 191 = minecraft:mangrove_swamp
 192 = minecraft:cherry_groves
+193 = minecraft:pale_garden
+194 = minecraft:sulfur_caves
+195 = minecraft:dappled_forest
+
+

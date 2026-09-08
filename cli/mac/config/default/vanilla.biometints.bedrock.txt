@@ -48,7 +48,8 @@ minecraft:forest                                   = #79c05a, #59ae30, #1E97F2
 minecraft:forest_hills                             = #79c05a, #59ae30, #056BD1
 minecraft:roofed_forest                            = #507a32, #59ae30, #3B6CD1
 minecraft:roofed_forest_mutated                    = #507a32, #59ae30, #3B6CD1
-
+minecraft:pale_garden                              = #778272, #878D76, #76889D
+minecraft:dappled_forest                           = #df6827, #e68e30, #375154
 
 # Icy
 # ---
@@ -91,11 +92,11 @@ minecraft:mushroom_island_shore                    = #55c93f, #2bbb0f, #818193
 # Nether
 # ------
 
-minecraft:basalt_deltas                            = #BFB755, #AEA42A, #905957
-minecraft:crimson_forest                           = #BFB755, #AEA42A, #905957
-minecraft:hell                                     = #BFB755, #AEA42A, #905957
-minecraft:soulsand_valley                          = #BFB755, #AEA42A, #905957
-minecraft:warped_forest                            = #BFB755, #AEA42A, #905957
+minecraft:basalt_deltas                            = #BFB755, #AEA42A, #3F76E4
+minecraft:crimson_forest                           = #BFB755, #AEA42A, #905957‌
+minecraft:hell                                     = #BFB755, #AEA42A, #905957‌
+minecraft:soulsand_valley                          = #BFB755, #AEA42A, #905957‌
+minecraft:warped_forest                            = #BFB755, #AEA42A, #905957‌
 
 
 # Ocean
@@ -172,3 +173,4 @@ minecraft:the_end                                  = #8eb971, #71a74d, #62529E
 minecraft:deep_dark                                = #91bd59, #77ab2f, #44AFF5
 minecraft:dripstone_caves                          = #8AB689, #6DA36B, #44aff5
 minecraft:lush_caves                               = #8EB971, #71a74d, #44aff5
+minecraft:sulfur_caves                             = #ABA64F, #77ab2f, #34BF89
