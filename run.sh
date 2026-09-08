@@ -7,6 +7,8 @@ if [[ $# -lt 1 ]]; then
 fi
 
 WORLD_PATH="$1"
+BEDROCK_SAMPLES_PATH="./cli/bedrock-samples-v1.26.40.05-full.zip"
+JAVA_CLIENT_JAR="./cli/client-26.2.jar"
 
 # Detect with architecture and run the appropriate binary
 case "$(uname -s)" in
@@ -25,6 +27,9 @@ esac
 "$CLI_BIN" web render \
   --log-level warning \
   --world "$WORLD_PATH" \
+  --bedrock-vanilla-pack "$BEDROCK_SAMPLES_PATH" \
+  --java-client-jar "$JAVA_CLIENT_JAR" \
+  --blockrender true \
   --output "./maps" \
   --showgrid true \
   --imageformat "webp" \
@@ -36,6 +41,9 @@ esac
 "$CLI_BIN" web render \
   --log-level warning \
   --world "$WORLD_PATH" \
+  --bedrock-vanilla-pack "$BEDROCK_SAMPLES_PATH" \
+  --java-client-jar "$JAVA_CLIENT_JAR" \
+  --blockrender true \
   --output "./maps/nether" \
   --dimension nether \
   --topY 88 \
@@ -49,6 +57,9 @@ esac
 "$CLI_BIN" web render \
   --log-level warning \
   --world "$WORLD_PATH" \
+  --bedrock-vanilla-pack "$BEDROCK_SAMPLES_PATH" \
+  --java-client-jar "$JAVA_CLIENT_JAR" \
+  --blockrender true \
   --output "./maps/end" \
   --showgrid true \
   --imageformat "webp" \

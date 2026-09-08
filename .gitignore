@@ -1,3 +1,6 @@
+cli/client-*.jar
+cli/bedrock-samples-*.zip
+
 maps/tiles
 maps/lib
 maps/unmined*
