@@ -522,12 +522,6 @@ UnminedCustomMarkers = {
             type: "farm",
         }),
         point({
-            x: 1747,
-            z: 384,
-            type: "farm",
-            text: "Armadillo sanctuary",
-        }),
-        point({
             x: 2983,
             z: -2450,
             type: "village",
