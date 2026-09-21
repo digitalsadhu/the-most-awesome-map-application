@@ -39,8 +39,12 @@
     <search>
         <form name="search">
             <label for="poi">Search for a point of interest</label>
-            <input list="markerlist" placeholder="Search for a point of interest" type="search" id="poi" name="poi">
-            <datalist id="markerlist"></datalist>
+            <select id="poi" name="poi">
+                <button>
+                    <selectedcontent></selectedcontent>
+                </button>
+                <option value="">Points of interest</option>
+            </select>
         </form>
     </search>
     <nav>
@@ -73,15 +77,25 @@
         const mapElement = document.getElementById('map');
         const unmined = new Unmined(mapElement, UnminedMapProperties, UnminedRegions);
 
-        const datalist = document.getElementById("markerlist");
+
+        const datalist = document.getElementById("poi");
         for (const marker of UnminedMapProperties.markers) {
             if (!marker.text) continue;
             const listentry = document.createElement("option");
-            listentry.setAttribute("value", marker.text.replaceAll("\n", " "));
+            const poiText = marker.text.replaceAll("\n", " ");
+            
+            listentry.innerHTML = `
+                <span class="icon" aria-hidden="true">
+                    <img src="/${PINS[marker.type] || "other.png"}" alt="">
+                </span>
+                <span>${poiText}</span>
+            `;
+            
+            listentry.setAttribute("value", poiText);
             datalist.appendChild(listentry);
         }
 
-        document.forms.search.addEventListener('submit', async function (e) {
+        document.forms.search.addEventListener('change', async function (e) {
             e.preventDefault();
             const name = document.getElementById("poi").value;
             const results = fuzzysort.go(name, UnminedMapProperties.markers, { key: 'text' });

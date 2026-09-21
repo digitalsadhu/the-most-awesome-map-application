@@ -150,3 +150,8 @@ div.ol-mouse-position {
     display: inline-block;
     margin-left: -20px;
 }
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
