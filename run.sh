@@ -17,8 +17,7 @@ case "$(uname -s)" in
     CLI_BIN="./cli/linux/unmined-cli"
     ;;
   *)
-    echo "Unsupported operating system: $(uname -s)"
-    exit 1
+    CLI_BIN="./cli/windows/unmined-cli.exe"
     ;;
 esac
 
