@@ -68,13 +68,22 @@
         </h2>
         <ul>
             <li>
-                <button popovertarget="poi-search">Search</button>
+                <button popovertarget="poi-search">
+                    <span class="visually-hidden">Search</span>
+                    <img height="16px" width="16px" src="/icons/search.svg" alt="magnifying glass">
+                </button>
             </li>
             <li>
-                <button popovertarget="marker-filters">Marker filters</button>
+                <button popovertarget="marker-filters">
+                    <span class="visually-hidden">Marker filters</span>
+                    <img height="16px" width="16px" src="/icons/settings.svg" alt="settings">
+                </button>
             </li>
             <li>
-                <button popovertarget="dimensions-nav">Dimensions</button>
+                <button popovertarget="dimensions-nav">
+                    <span class="visually-hidden">Dimensions</span>
+                    <img height="16px" width="16px" src="/icons/layers.svg" alt="layers">
+                </button>
             </li>
             <li id="zoom-controls-container">
                 <!-- Map zoom controls get moved here using JS -->
@@ -95,9 +104,6 @@
     <div id="map"></div>
 
     <script type="text/javascript">
-
-        document.title = UnminedMapProperties.worldName.replace(" - Copy", "") + " - " + document.title;
-
         if (UnminedCustomMarkers && UnminedCustomMarkers.isEnabled && UnminedCustomMarkers.markers) {
             UnminedMapProperties.markers = UnminedMapProperties.markers.concat(UnminedCustomMarkers.markers);
         }
@@ -114,6 +120,14 @@
         if (zoomControls) {
             zoomControls.remove();
             document.getElementById('zoom-controls-container').appendChild(zoomControls);
+            document.querySelector('.ol-zoom-in').innerHTML = `
+                <span class="visually-hidden">Zoom in</span>
+                <img src="/icons/plus.svg" alt="plus">
+            `;
+            document.querySelector('.ol-zoom-out').innerHTML = `
+                <span class="visually-hidden">Zoom out</span>
+                <img height="16px" width="16px" src="/icons/minus.svg" alt="minus">
+            `;
         }
 
         // populate the two select listboxes that filter marker types

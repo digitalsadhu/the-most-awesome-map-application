@@ -136,4 +136,47 @@ option:nth-of-type(odd) {
 
 .map-controls ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.map-controls button {
+  appearance: none;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  padding: 12px;
+  background-color: #fff;
+  color: #000;
+}
+
+.map-controls button:active {
+  background-color: #ddd;
+}
+
+.ol-zoom .ol-zoom-in {
+  border-radius: 20px 20px 0 0;
+}
+
+.ol-zoom .ol-zoom-out {
+  border-radius: 0 0 20px 20px;
+}
+
+.map-controls .ol-control {
+  background-color: transparent;
+}
+
+
+body:has(#dimensions-nav:popover-open) button[popovertarget="dimensions-nav"] {
+  background-color: #ddd;
+}
+
+body:has(#poi-search:popover-open) button[popovertarget="poi-search"] {
+  background-color: #ddd;
+}
+
+body:has(#marker-filters:popover-open) button[popovertarget="marker-filters"] {
+  background-color: #ddd;
 }
