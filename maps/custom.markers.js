@@ -37,20 +37,19 @@ Use the imageScale property if the pin image is too large.
 */
 
 const PINS = {
-    farm: 'farm.png',
-    other: 'other.png',
-    base: 'player-base.png',
-    subway: 'subway-stop.png',
-    netherice: 'netherice-stop.png',
-    trialChamber: 'trial-chamber.png',
-    disassembledTrialChamber: 'disassembled-chambers.png',
-    village: 'village.png',
-    oceanMonument: 'other.png',
+    base: { image: 'player-base.png', name: "Player base" },
+    farm: { image: 'farm.png', name: "Farm" },
+    netherice: { image: 'netherice-stop.png', name: "NICE stop" },
+    subway: { image: 'subway-stop.png', name: "Subway stop" },
+    village: { image: 'village.png', name: "Village" },
+    other: { image: 'other.png', name: "Miscellaneous" },
+    trialChamber: { image: 'trial-chamber.png', name: "Trial chamber" },
+    disassembledTrialChamber: { image: 'disassembled-chambers.png', name: "Dismanteled trial chamber" },
 }
 
 const point = (data) => {
     return {
-        image: PINS[data.type] || 'other.png',
+        image: PINS[data.type]?.image || 'other.png',
         imageScale: 0.4,
         textColor: "white",
         offsetX: 0,
@@ -425,57 +424,57 @@ UnminedCustomMarkers = {
             type: 'netherice',
         }),
         point({
-            x: -5220, 
+            x: -5220,
             z: 1195,
             type: 'trialChamber',
         }),
         point({
-            x: -7390, 
+            x: -7390,
             z: -280,
             type: 'trialChamber',
         }),
         point({
-            x: -10880, 
+            x: -10880,
             z: -240,
             type: 'trialChamber',
         }),
         point({
-            x: -10720, 
+            x: -10720,
             z: -960,
             type: 'trialChamber',
         }),
         point({
-            x: 3370, 
+            x: 3370,
             z: 630,
             type: 'trialChamber',
         }),
         point({
-            x: 2360, 
+            x: 2360,
             z: 100,
             type: 'trialChamber',
         }),
         point({
-            x: 2735, 
+            x: 2735,
             z: 2990,
             type: 'trialChamber',
         }),
         point({
-            x: 785, 
+            x: 785,
             z: -1900,
             type: 'trialChamber',
         }),
         point({
-            x: 1280, 
+            x: 1280,
             z: -7282,
             type: 'trialChamber',
         }),
         point({
-            x: 5635, 
+            x: 5635,
             z: -7366,
             type: 'trialChamber',
         }),
         point({
-            x: 2900, 
+            x: 2900,
             z: 4114,
             type: 'trialChamber',
         }),

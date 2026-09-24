@@ -4,14 +4,12 @@ uNmINeD does not overwrite this file during map generation.
 */
 
 const PINS = {
-    farm: 'farm.png',
-    other: 'other.png',
-    city: 'city.png',
+    other: { image: 'other.png', name: "Miscellaneous" },
 }
 
 const point = (data) => {
     return {
-        image: PINS[data.type] || 'other.png',
+        image: PINS[data.type]?.image || 'other.png',
         imageScale: 0.4,
         textColor: "white",
         offsetX: 0,
