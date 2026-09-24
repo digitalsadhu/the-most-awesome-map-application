@@ -310,6 +310,7 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"] {
   gap: 8px;
   padding: 8px 12px;
   border-bottom: 1px solid #ccc;
+  align-items: center;
 }
 
 .marker-name-filter input {
