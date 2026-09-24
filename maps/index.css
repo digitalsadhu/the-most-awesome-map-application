@@ -285,7 +285,7 @@ button[popovertarget="poi-search"] {
   anchor-name: --poi-search;
 }
 
-body:has(#poi-search:popover-open) button[popovertarget="poi-search"] {
+body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popovertargetaction]) {
   background-color: var(--interactive-active-background);
 }
 
