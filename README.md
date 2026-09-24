@@ -23,7 +23,9 @@ git checkout maps/
 Assuming you have Node.js installed you can then serve up the map like this:
 
 ```sh
-npx http-server maps/
+npx http-server -c-1 maps/
 ```
+
+`-c-1` turns off the HTTP cache so you always get the latest content on refresh.
 
 Then visit http://127.0.0.1:8080 in a browser.

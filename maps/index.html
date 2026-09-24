@@ -36,7 +36,21 @@
 </head>
 
 <body>
-    <search>
+    <nav popover id="dimensions-nav" aria-label="Minecraft dimension maps">
+        <ul>
+            <li>
+                <a href="#" aria-current="page">Overworld</a>
+            </li>
+            <li>
+                <a href="/nether">Nether</a>
+            </li>
+            <li>
+                <a href="/end">End</a>
+            </li>
+        </ul>
+    </nav>
+
+    <search popover id="poi-search">
         <form name="search">
             <label for="poi">Search for a point of interest</label>
             <select id="poi" name="poi">
@@ -47,19 +61,32 @@
             </select>
         </form>
     </search>
-    <nav>
+
+    <section class="map-controls" aria-labelledby="map-controls-heading">
+        <h2 id="map-controls-heading" class="visually-hidden">
+            Map controls
+        </h2>
         <ul>
             <li>
-                <a href="#">Overworld</a>
+                <button popovertarget="poi-search">Search</button>
             </li>
             <li>
-                <a href="/nether">Nether</a>
+                <button popovertarget="marker-filters">Marker filters</button>
             </li>
             <li>
-                <a href="/end">End</a>
+                <button popovertarget="dimensions-nav">Dimensions</button>
+            </li>
+            <li id="zoom-controls-container">
+                <!-- Map zoom controls get moved here using JS -->
             </li>
         </ul>
-    </nav>
+    </section>
+
+    <section popover id="marker-filters" aria-labelledby="marker-filters-heading">
+        <h2 id="marker-filters-heading">Marker filters</h2>
+        <!-- This popover is a selectlist widget -->
+    </section>
+
     <div id="map"></div>
 
     <script type="text/javascript">
@@ -77,20 +104,26 @@
         const mapElement = document.getElementById('map');
         const unmined = new Unmined(mapElement, UnminedMapProperties, UnminedRegions);
 
+        let zoomControls = document.querySelector('.ol-zoom');
+        if (zoomControls) {
+            zoomControls.remove();
+            document.getElementById('zoom-controls-container').appendChild(zoomControls);
+        }
+
 
         const datalist = document.getElementById("poi");
         for (const marker of UnminedMapProperties.markers) {
             if (!marker.text) continue;
             const listentry = document.createElement("option");
             const poiText = marker.text.replaceAll("\n", " ");
-            
+
             listentry.innerHTML = `
                 <span class="icon" aria-hidden="true">
                     <img src="/${PINS[marker.type] || "other.png"}" alt="">
                 </span>
                 <span>${poiText}</span>
             `;
-            
+
             listentry.setAttribute("value", poiText);
             datalist.appendChild(listentry);
         }
