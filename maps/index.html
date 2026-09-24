@@ -53,9 +53,18 @@
     <div popover id="poi-search">
         <form name="search">
             <label for="poi-filter" class="visually-hidden">Filter points of interest</label>
-            <input id="poi-filter" name="poi-filter">
-            <select aria-labelledby="marker-filters-heading" multiple name="marker-types">
-            </select>
+            <div class="marker-name-filter">
+                <img height="16px" width="16px" src="/icons/search.svg" alt="">
+                <input id="poi-filter" name="poi-filter" placeholder="Filter points of interest">
+                <button id="clear-filter" type="button">
+                    <span class="visually-hidden">Clear filters</span>
+                    <img height="16px" width="16px" src="/icons/close.svg" alt="">
+                </button>
+            </div>
+            <div class="scroll-x">
+                <select aria-labelledby="marker-filters-heading" multiple name="marker-types">
+                </select>
+            </div>
         </form>
 
         <ul id="search-results">
@@ -92,7 +101,7 @@
     </section>
 
     <section popover id="marker-filters" aria-labelledby="marker-filters-heading">
-        <h2 id="marker-filters-heading">Filter marker types</h2>
+        <h2 class="visually-hidden" id="marker-filters-heading">Filter marker types</h2>
         <form name="markers-filter">
             <select aria-labelledby="marker-filters-heading" multiple name="marker-types">
             </select>
@@ -139,10 +148,8 @@
                 const label = name;
                 option.value = markerType;
                 option.innerHTML = `
-                    <span class="icon" aria-hidden="true">
-                        <img src="/${image}" alt="">
-                    </span>
-                    <span>${label}</span>
+                    <img height="24px" width="16px" src="/${image}" alt="">
+                    <span class="label">${label}</span>
                 `;
                 markerFilter.appendChild(option);
             }
@@ -161,9 +168,7 @@
             const poiButton = document.createElement("button");
             poiButton.type = "button";
             poiButton.innerHTML = `
-                <span class="icon" aria-hidden="true">
-                    <img src="/${PINS[marker.type]?.image || "other.png"}" alt="">
-                </span>
+                <img height="24px" width="16px" src="/${PINS[marker.type]?.image || "other.png"}" alt="">
                 <span>${label}</span>
             `;
             poiButton.addEventListener("click", () => {
@@ -213,14 +218,15 @@
             }
         }
 
-        // do fuzzy matching to filter visible search results
+        let visibleMarkerTypes = Object.keys(PINS);
         const poiFilter = document.querySelector('input[name="poi-filter"]');
+
+        // do fuzzy matching to filter visible search results
         poiFilter.addEventListener("input", (e) => {
             showSearchResults(e.target.value);
         });
 
         // keep track of the marker filter states and keep the two lists in sync
-        let visibleMarkerTypes = Object.keys(PINS);
         const [searchMarkerFilter, standaloneMarkerFilter] = markerFilters;
         searchMarkerFilter.addEventListener('change', function (e) {
             const checkedOptions = this.querySelectorAll('option:checked');
@@ -271,6 +277,29 @@
             unmined.olMap.addLayer(unmined.markersLayer);
         });
 
+        searchMarkerFilter.querySelectorAll('.label').forEach(el => el.classList.add('visually-hidden'));
+
+        document.getElementById("clear-filter").addEventListener("click", () => {
+            poiFilter.value = "";
+            visibleMarkerTypes = Object.keys(PINS);
+            searchMarkerFilter.querySelectorAll('option').forEach((el) => {
+                el.selected = false;
+            });
+            standaloneMarkerFilter.querySelectorAll('option').forEach((el) => {
+                el.selected = false;
+            });
+            showSearchResults("");
+            // update the list of visible markers on the map by recreating it
+            unmined.olMap.removeLayer(unmined.markersLayer);
+            const markers = [...allMarkers].filter((marker) => {
+                if (visibleMarkerTypes.includes(marker.type || 'other')) {
+                    return true;
+                }
+                return false;
+            })
+            unmined.markersLayer = unmined.createMarkersLayer(markers);
+            unmined.olMap.addLayer(unmined.markersLayer);
+        });
     </script>
 </body>
 
