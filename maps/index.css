@@ -190,18 +190,21 @@ select,
   display: none;
 }
 
-option {
-  background: var(--interactive-background);
-  cursor: pointer;
-  color: #000;
-  gap: 8px;
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
-option:checked {
+label {
+  background: var(--interactive-background);
+}
+
+label:has(input:checked) {
   background-color: var(--interactive-active-background);
 }
 
-option:hover {
+label:hover {
   background-color: var(--interactive-hover-background);
 }
 
@@ -221,14 +224,15 @@ body:has(#marker-filters:popover-open) button[popovertarget="marker-filters"] {
   background-color: var(--interactive-active-background);
 }
 
-[id="marker-filters"] select {
-  border: none;
-  height: fit-content;
-}
 
-[id="marker-filters"] option {
+[id="marker-filters"] label {
+  cursor: pointer;
+  color: #000;
+  display: flex;
+  gap: 8px;
   padding: 8px 12px;
   font-size: 14px;
+  align-items: center;
 }
 
 [id="marker-filters"] img {
@@ -294,11 +298,18 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"] {
   max-width: min(383px, 94svw);
 }
 
+
+@media screen and (width <= 500) {
+  [popover][id="poi-search"] {
+    margin-left: -40px;
+  }
+}
+
 .marker-name-filter {
   display: flex;
   gap: 8px;
   padding: 8px 12px;
-  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
 }
 
 .marker-name-filter input {
@@ -312,9 +323,10 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"] {
 .scroll-x {
   overflow-x: scroll;
   scrollbar-width: none;
+  border-bottom: 1px solid #ccc;
 }
 
-#poi-search select {
+#poi-search fieldset {
   border: none;
   display: flex;
   padding: 8px;
@@ -323,7 +335,7 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"] {
   width: fit-content;
 }
 
-#poi-search option {
+#poi-search fieldset label {
   display: block;
   position: relative;
   border-radius: 20px;
@@ -333,7 +345,7 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"] {
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
-#poi-search option img {
+#poi-search label img {
   position: absolute;
   top: calc(50% - 12px);
   left: calc(50% - 8px);
@@ -356,6 +368,12 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"] {
   display: inline-flex;
   gap: 8px;
   align-items: center;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+}
+
+#poi-search li:last-of-type button {
+  border-bottom: none;
 }
 
 #clear-filter {

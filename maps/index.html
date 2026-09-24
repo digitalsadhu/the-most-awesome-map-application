@@ -62,8 +62,8 @@
                 </button>
             </div>
             <div class="scroll-x">
-                <select aria-labelledby="marker-filters-heading" multiple name="marker-types">
-                </select>
+                <fieldset aria-labelledby="marker-filters-heading" name="marker-types">
+                </fieldset>
             </div>
         </form>
 
@@ -103,8 +103,8 @@
     <section popover id="marker-filters" aria-labelledby="marker-filters-heading">
         <h2 class="visually-hidden" id="marker-filters-heading">Filter marker types</h2>
         <form name="markers-filter">
-            <select aria-labelledby="marker-filters-heading" multiple name="marker-types">
-            </select>
+            <fieldset aria-labelledby="marker-filters-heading" name="marker-types">
+            </fieldset>
         </form>
 
         <!-- This popover is a selectlist widget -->
@@ -139,17 +139,20 @@
             `;
         }
 
-        // populate the two select listboxes that filter marker types
-        const markerFilters = document.querySelectorAll('select[name="marker-types"]');
+        // populate the two marker type filters with options
+        const markerFilters = document.querySelectorAll('fieldset[name="marker-types"]');
         const markerTypes = Object.entries(PINS);
         for (const [markerType, { image, name }] of markerTypes) {
             for (const markerFilter of markerFilters) {
-                const option = document.createElement("option");
+                const option = document.createElement("div");
                 const label = name;
-                option.value = markerType;
+                option.dataset.value = markerType;
                 option.innerHTML = `
-                    <img height="24px" width="16px" src="/${image}" alt="">
-                    <span class="label">${label}</span>
+                    <label>
+                        <img height="24px" width="16px" src="/${image}" alt="">
+                        <input type="checkbox" value="${markerType}" class="visually-hidden">
+                        <span class="label">${label}</span>
+                    </label>
                 `;
                 markerFilter.appendChild(option);
             }
@@ -229,14 +232,14 @@
         // keep track of the marker filter states and keep the two lists in sync
         const [searchMarkerFilter, standaloneMarkerFilter] = markerFilters;
         searchMarkerFilter.addEventListener('change', function (e) {
-            const checkedOptions = this.querySelectorAll('option:checked');
+            const checkedOptions = this.querySelectorAll('input:checked');
             visibleMarkerTypes = [];
             for (const option of checkedOptions) {
-                standaloneMarkerFilter.querySelectorAll('option').forEach((el) => {
+                standaloneMarkerFilter.querySelectorAll('input').forEach((el) => {
                     if (el.value === option.value) {
-                        el.selected = true;
+                        el.checked = true;
                     } else {
-                        el.selected = false;
+                        el.checked = false;
                     }
                 });
                 visibleMarkerTypes.push(option.value);
@@ -248,14 +251,14 @@
             showSearchResults(poiFilter.value);
         });
         standaloneMarkerFilter.addEventListener('change', function (e) {
-            const checkedOptions = this.querySelectorAll('option:checked');
+            const checkedOptions = this.querySelectorAll('input:checked');
             visibleMarkerTypes = [];
             for (const option of checkedOptions) {
-                searchMarkerFilter.querySelectorAll('option').forEach((el) => {
+                searchMarkerFilter.querySelectorAll('input').forEach((el) => {
                     if (el.value === option.value) {
-                        el.selected = true;
+                        el.checked = true;
                     } else {
-                        el.selected = false;
+                        el.checked = false;
                     }
                 });
                 visibleMarkerTypes.push(option.value);
@@ -282,11 +285,11 @@
         document.getElementById("clear-filter").addEventListener("click", () => {
             poiFilter.value = "";
             visibleMarkerTypes = Object.keys(PINS);
-            searchMarkerFilter.querySelectorAll('option').forEach((el) => {
-                el.selected = false;
+            searchMarkerFilter.querySelectorAll('input').forEach((el) => {
+                el.checked = false;
             });
-            standaloneMarkerFilter.querySelectorAll('option').forEach((el) => {
-                el.selected = false;
+            standaloneMarkerFilter.querySelectorAll('input').forEach((el) => {
+                el.checked = false;
             });
             showSearchResults("");
             // update the list of visible markers on the map by recreating it
