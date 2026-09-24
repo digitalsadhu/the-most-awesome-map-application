@@ -212,7 +212,7 @@ button[popovertarget="marker-filters"] {
 [popover][id="marker-filters"] {
   position-anchor: --marker-filters;
   padding-block: 8px;
-  min-height: 280px;
+  height: fit-content;
 }
 
 body:has(#marker-filters:popover-open) button[popovertarget="marker-filters"] {
