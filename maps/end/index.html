@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>uNmINeD</title>
+    <title>The Most Awesome map of the End</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -36,14 +36,7 @@
 </head>
 
 <body>
-    <search>
-        <form name="search">
-            <label for="poi">Search for a point of interest</label>
-            <input list="markerlist" placeholder="Search for a point of interest" type="search" id="poi" name="poi">
-            <datalist id="markerlist"></datalist>
-        </form>
-    </search>
-    <nav>
+    <nav popover id="dimensions-nav" aria-label="Minecraft dimension maps">
         <ul>
             <li>
                 <a href="/">Overworld</a>
@@ -52,10 +45,53 @@
                 <a href="/nether">Nether</a>
             </li>
             <li>
-                <a href="#">End</a>
+                <a href="#" aria-current="page">End</a>
             </li>
         </ul>
     </nav>
+
+    <div popover id="poi-search">
+        <form name="search">
+            <label for="poi-filter" class="visually-hidden">Filter points of interest</label>
+            <input id="poi-filter" name="poi-filter">
+            <select aria-labelledby="marker-filters-heading" multiple name="marker-types">
+            </select>
+        </form>
+
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    <section class="map-controls" aria-labelledby="map-controls-heading">
+        <h2 id="map-controls-heading" class="visually-hidden">
+            Map controls
+        </h2>
+        <ul>
+            <li>
+                <button popovertarget="poi-search">Search</button>
+            </li>
+            <li>
+                <button popovertarget="marker-filters">Marker filters</button>
+            </li>
+            <li>
+                <button popovertarget="dimensions-nav">Dimensions</button>
+            </li>
+            <li id="zoom-controls-container">
+                <!-- Map zoom controls get moved here using JS -->
+            </li>
+        </ul>
+    </section>
+
+    <section popover id="marker-filters" aria-labelledby="marker-filters-heading">
+        <h2 id="marker-filters-heading">Filter marker types</h2>
+        <form name="markers-filter">
+            <select aria-labelledby="marker-filters-heading" multiple name="marker-types">
+            </select>
+        </form>
+
+        <!-- This popover is a selectlist widget -->
+    </section>
+
     <div id="map"></div>
 
     <script type="text/javascript">
@@ -71,27 +107,154 @@
         }
 
         const mapElement = document.getElementById('map');
-        const unmined = new Unmined(mapElement, UnminedMapProperties, UnminedRegions);
+        const allMarkers = [...UnminedCustomMarkers.markers];
+        let unmined = new Unmined(mapElement, UnminedMapProperties, UnminedRegions);
 
-        const datalist = document.getElementById("markerlist");
-        for (const marker of UnminedMapProperties.markers) {
-            if (!marker.text) continue;
-            const listentry = document.createElement("option");
-            listentry.setAttribute("value", marker.text.replaceAll("\n", " "));
-            datalist.appendChild(listentry);
+        let zoomControls = document.querySelector('.ol-zoom');
+        if (zoomControls) {
+            zoomControls.remove();
+            document.getElementById('zoom-controls-container').appendChild(zoomControls);
         }
 
-        document.forms.search.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const name = document.getElementById("poi").value;
-            const results = fuzzysort.go(name, UnminedMapProperties.markers, { key: 'text' });
-            if (results.length) {
-                const marker = results[0].obj;
+        // populate the two select listboxes that filter marker types
+        const markerFilters = document.querySelectorAll('select[name="marker-types"]');
+        const markerTypes = Object.entries(PINS);
+        for (const [markerType, { image, name }] of markerTypes) {
+            for (const markerFilter of markerFilters) {
+                const option = document.createElement("option");
+                const label = name;
+                option.value = markerType;
+                option.innerHTML = `
+                    <span class="icon" aria-hidden="true">
+                        <img src="/${image}" alt="">
+                    </span>
+                    <span>${label}</span>
+                `;
+                markerFilter.appendChild(option);
+            }
+        }
+
+        // add the full list of points of interest to the search results
+        const searchPopover = document.getElementById("poi-search");
+        const searchResults = document.getElementById("search-results");
+        for (const marker of UnminedMapProperties.markers) {
+            if (!marker.text) continue;
+            const listentry = document.createElement("li");
+            listentry.dataset.type = marker.type || 'other'; // used for markers type filters
+
+            const label = marker.text.replaceAll("\n", " ");
+
+            const poiButton = document.createElement("button");
+            poiButton.type = "button";
+            poiButton.innerHTML = `
+                <span class="icon" aria-hidden="true">
+                    <img src="/${PINS[marker.type]?.image || "other.png"}" alt="">
+                </span>
+                <span>${label}</span>
+            `;
+            poiButton.addEventListener("click", () => {
                 unmined.center([
                     marker.x,
                     marker.z,
                 ]);
+                searchPopover.togglePopover();
+            });
+
+            listentry.appendChild(poiButton);
+            searchResults.appendChild(listentry);
+        }
+
+        function showSearchResults(inputValue = "") {
+            // start with all results hidden
+            document.querySelectorAll('#search-results li').forEach((el) => el.hidden = true);
+
+            if (!inputValue) {
+                // make all results visible when filter is empty unless they are filtered out by type
+                document.querySelectorAll('#search-results li').forEach((el) => {
+                    if (visibleMarkerTypes.includes(el.dataset.type)) {
+                        el.hidden = false;
+                    }
+                });
+            } else {
+                // show fuzzy matches unless they are filtered out by type
+                const matches = fuzzysort.go(inputValue, UnminedMapProperties.markers, { key: 'text' });
+                if (matches.length) {
+                    for (const match of matches) {
+                        const marker = match.obj;
+                        const markerType = marker.type || 'other';
+
+                        // skip matches for marker types we have filtered out
+                        if (!visibleMarkerTypes.includes(markerType)) {
+                            continue;
+                        }
+
+                        const label = marker.text.replaceAll("\n", " ");
+                        document.querySelectorAll('#search-results li').forEach((el) => {
+                            if (el.innerText.includes(label)) {
+                                el.hidden = false;
+                            }
+                        });
+                    }
+                }
             }
+        }
+
+        // do fuzzy matching to filter visible search results
+        const poiFilter = document.querySelector('input[name="poi-filter"]');
+        poiFilter.addEventListener("input", (e) => {
+            showSearchResults(e.target.value);
+        });
+
+        // keep track of the marker filter states and keep the two lists in sync
+        let visibleMarkerTypes = Object.keys(PINS);
+        const [searchMarkerFilter, standaloneMarkerFilter] = markerFilters;
+        searchMarkerFilter.addEventListener('change', function (e) {
+            const checkedOptions = this.querySelectorAll('option:checked');
+            visibleMarkerTypes = [];
+            for (const option of checkedOptions) {
+                standaloneMarkerFilter.querySelectorAll('option').forEach((el) => {
+                    if (el.value === option.value) {
+                        el.selected = true;
+                    } else {
+                        el.selected = false;
+                    }
+                });
+                visibleMarkerTypes.push(option.value);
+            }
+            if (visibleMarkerTypes.length === 0) {
+                visibleMarkerTypes = Object.keys(PINS);
+            }
+            // refresh the list of visible points of interest after changing this set
+            showSearchResults(poiFilter.value);
+        });
+        standaloneMarkerFilter.addEventListener('change', function (e) {
+            const checkedOptions = this.querySelectorAll('option:checked');
+            visibleMarkerTypes = [];
+            for (const option of checkedOptions) {
+                searchMarkerFilter.querySelectorAll('option').forEach((el) => {
+                    if (el.value === option.value) {
+                        el.selected = true;
+                    } else {
+                        el.selected = false;
+                    }
+                });
+                visibleMarkerTypes.push(option.value);
+            }
+            if (visibleMarkerTypes.length === 0) {
+                visibleMarkerTypes = Object.keys(PINS);
+            }
+            // refresh the list of visible points of interest after changing this set
+            showSearchResults(poiFilter.value);
+            // update the list of visible markers on the map by recreating it
+            unmined.olMap.removeLayer(unmined.markersLayer);
+            const markers = [...allMarkers].filter((marker) => {
+                if (visibleMarkerTypes.includes(marker.type || 'other')) {
+                    return true;
+                }
+                return false;
+            })
+            unmined.markersLayer = unmined.createMarkersLayer(markers);
+            unmined.olMap.addLayer(unmined.markersLayer);
         });
 
     </script>

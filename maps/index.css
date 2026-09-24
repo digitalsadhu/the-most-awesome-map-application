@@ -98,9 +98,33 @@ div.ol-mouse-position {
   display: inline-block;
 }
 
+[popover]:popover-open {
+  overflow: scroll;
+  max-height: 80vh;
+}
+
 select,
 ::picker(select) {
   appearance: base-select;
+}
+
+select {
+  border: 2px solid #dddddd;
+  border-radius: 8px;
+  background: #eeeeee;
+  width: 200px;
+  height: 130px;
+}
+
+option {
+  background: #eeeeee;
+  padding: 10px;
+  height: 40px;
+  outline: none;
+}
+
+option:nth-of-type(odd) {
+  background: white;
 }
 
 .map-controls {

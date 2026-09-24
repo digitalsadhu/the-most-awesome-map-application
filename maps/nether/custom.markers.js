@@ -4,18 +4,14 @@ uNmINeD does not overwrite this file during map generation.
 */
 
 const PINS = {
-    portal: 'other.png',
-    farm: 'farm.png',
-    other: 'other.png',
-    base: 'player-base.png',
-    subway: 'subway-stop.png',
-    netherice: 'netherice-stop.png',
-    village: 'village.png',
+    farm: { image: 'farm.png', name: "Farm" },
+    netherice: { image: 'netherice-stop.png', name: "NICE stop" },
+    other: { image: 'other.png', name: "Miscellaneous" },
 }
 
 const point = (data) => {
     return {
-        image: PINS[data.type] || 'other.png',
+        image: PINS[data.type]?.image || 'other.png',
         imageScale: 0.4,
         textColor: "white",
         offsetX: 0,
@@ -130,7 +126,7 @@ UnminedCustomMarkers = {
             x: 758,
             z: 252,
             text: "Blaze\nFarm",
-            type: 'netherice',
+            type: 'farm',
         }),
         point({
             x: -25,
