@@ -383,6 +383,11 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popov
   cursor: pointer;
   border-radius: 20px;
   background-color: var(--interactive-background);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #poi-search button:active {
