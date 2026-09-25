@@ -267,7 +267,7 @@ body:has(#dimensions-nav:popover-open) button[popovertarget="dimensions-nav"] {
 }
 
 [id="dimensions-nav"] li:not(:last-of-type) {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.5px solid #ccc;
 }
 
 [id="dimensions-nav"] a {
@@ -309,7 +309,7 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popov
   display: flex;
   gap: 8px;
   padding: 8px 12px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.5px solid #ccc;
   align-items: center;
 }
 
@@ -324,7 +324,7 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popov
 .scroll-x {
   overflow-x: scroll;
   scrollbar-width: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.5px solid #ccc;
 }
 
 #poi-search fieldset {
@@ -370,7 +370,7 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popov
   gap: 8px;
   align-items: center;
   color: #000;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.5px solid #ccc;
 }
 
 #poi-search li:last-of-type button {
