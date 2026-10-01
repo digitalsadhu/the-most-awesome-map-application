@@ -368,7 +368,7 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popov
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
 }
 
-#poi-search fieldset label:focus-within {
+#poi-search fieldset label:has(input:focus-visible) {
   outline: 2px solid blue;
 }
 
