@@ -144,7 +144,7 @@ div.ol-mouse-position {
   margin: 0;
 }
 
-@media screen and (width <= 500) {
+@media screen and (width <= 500px) {
   .map-controls ul {
     padding: 8px;
   }
@@ -327,7 +327,7 @@ body:has(#poi-search:popover-open)
   top: 0;
 }
 
-@media screen and (width <= 500) {
+@media screen and (width <= 500px) {
   [popover][id="poi-search"] {
     margin-left: -40px;
   }
