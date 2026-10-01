@@ -181,6 +181,7 @@ searchMarkerFilter.querySelectorAll('.label').forEach(el => el.classList.add('vi
 document.getElementById("clear-filter").addEventListener("click", () => {
   poiFilter.value = "";
   visibleMarkerTypes = Object.keys(PINS);
+  delete markerFilterPopoverTrigger.dataset.activeFilters;
   searchMarkerFilter.querySelectorAll('input').forEach((el) => {
     el.checked = false;
   });
