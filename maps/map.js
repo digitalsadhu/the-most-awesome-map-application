@@ -107,6 +107,7 @@ function showSearchResults(inputValue = "") {
 }
 
 let visibleMarkerTypes = Object.keys(PINS);
+const markerFilterPopoverTrigger = document.querySelector('button[popovertarget="marker-filters"]');
 const poiFilter = document.querySelector('input[name="poi-filter"]');
 
 // do fuzzy matching to filter visible search results
@@ -150,7 +151,9 @@ standaloneMarkerFilter.addEventListener('change', function (e) {
     searchMarkerFilter.querySelectorAll('input').forEach((el) => {
         el.checked = false;
     });
+    delete markerFilterPopoverTrigger.dataset.activeFilters;
   } else {
+    markerFilterPopoverTrigger.dataset.activeFilters = visibleMarkerTypes.length;
     searchMarkerFilter.querySelectorAll('input').forEach((el) => {
       if (visibleMarkerTypes.includes(el.value)) {
         el.checked = true;

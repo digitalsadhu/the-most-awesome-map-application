@@ -211,6 +211,23 @@ label:hover {
 
 button[popovertarget="marker-filters"] {
   anchor-name: --marker-filters;
+  position: relative;
+}
+
+button[data-active-filters]::after {
+  content: attr(data-active-filters);
+  display: flex;
+  position: absolute;
+  top: -7px;
+  right: -8px;
+  background: #cc0000;
+  color: white;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 [popover][id="marker-filters"] {
