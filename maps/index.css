@@ -240,7 +240,6 @@ body:has(#marker-filters:popover-open) button[popovertarget="marker-filters"] {
   background-color: var(--interactive-active-background);
 }
 
-
 [id="marker-filters"] label {
   cursor: pointer;
   color: #000;
@@ -306,19 +305,27 @@ button[popovertarget="poi-search"] {
   anchor-name: --poi-search;
 }
 
-body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popovertargetaction]) {
+body:has(#poi-search:popover-open)
+  button[popovertarget="poi-search"]:not([popovertargetaction]) {
   background-color: var(--interactive-active-background);
 }
 
 [popover][id="poi-search"] {
   position-anchor: --poi-search;
-  padding-block: 8px;
+  padding-bottom: 8px;
   height: fit-content;
   max-height: 90svh;
   margin-right: 8px;
   max-width: min(383px, 94svw);
+  position: relative;
 }
 
+[id="poi-search"] form {
+  padding-top: 8px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+}
 
 @media screen and (width <= 500) {
   [popover][id="poi-search"] {
