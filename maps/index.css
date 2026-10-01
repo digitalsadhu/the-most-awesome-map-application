@@ -114,6 +114,16 @@ body {
   border-radius: 0 0 20px 20px;
 }
 
+div.ol-mouse-position {
+  bottom: 42px;
+  left: 9px;
+  top: unset;
+  right: unset;
+  border-radius: 12px;
+  padding: 6px;
+  font-size: 14px;
+}
+
 .map-controls .ol-control {
   background-color: transparent;
 }
@@ -177,17 +187,6 @@ body {
   padding: 0;
   border-radius: 20px;
   box-shadow: 0px 3px 6px 0px rbga(0, 0, 0, 0.1);
-}
-
-/* custom select */
-
-select,
-::picker(select) {
-  appearance: base-select;
-}
-
-::checkmark {
-  display: none;
 }
 
 fieldset {
@@ -342,6 +341,7 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popov
 }
 
 #poi-search fieldset label {
+  cursor: pointer;
   display: block;
   position: relative;
   border-radius: 20px;
@@ -349,6 +349,10 @@ body:has(#poi-search:popover-open) button[popovertarget="poi-search"]:not([popov
   padding: 0;
   width: 40px;
   box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+}
+
+#poi-search fieldset label:focus-within {
+  outline: 2px solid blue;
 }
 
 #poi-search label img {
