@@ -235,6 +235,10 @@ body:has(#marker-filters:popover-open) button[popovertarget="marker-filters"] {
   align-items: center;
 }
 
+[id="marker-filters"] div[data-value]:not(:last-of-type) {
+  border-bottom: 0.5px solid #ccc;
+}
+
 [id="marker-filters"] img {
   margin-bottom: -6px;
 }
