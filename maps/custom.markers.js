@@ -574,6 +574,18 @@ UnminedCustomMarkers = {
             text: "Breeze trial chamber farm",
             type: "farm",
         }),
+        point({
+            x: -2949,
+            z: 6701,
+            text: "",
+            type: "trialChamber",
+        }),
+        point({
+            x: -1543,
+            z: 6236,
+            text: "",
+            type: "trialChamber",
+        }),
         // do not delete the following two closing brackets
     ]
 }
