@@ -16,6 +16,7 @@ DEPLOY_USER="${DEPLOY_USER:-deploy}"
 INSTANCE_DIR="${INSTANCE_DIR:?INSTANCE_DIR is required (e.g. /home/amp/.ampdata/instances/TheMostAwesome01)}"
 WORLD_NAME="${WORLD_NAME:?WORLD_NAME is required (e.g. The Most Awesome)}"
 OUTPUT_DIR="${OUTPUT_DIR:-/opt/mcmap/maps}"
+GIT_DIR="${GIT_DIR:-/opt/mcmap/.git}"
 
 WORLD_DIR="${INSTANCE_DIR}/Minecraft/worlds/${WORLD_NAME}"
 DB_DIR="${WORLD_DIR}/db"
@@ -66,3 +67,6 @@ chmod -R a+rX "${OUTPUT_DIR}"
 sudo -u "${DEPLOY_USER}" ls -la "${DB_DIR}" >/dev/null
 
 echo "OK: ACLs applied and output dir prepared."
+
+# 6) Make sure the deploy user owns everything in the .git directory so we can git pull
+chown -R "${DEPLOY_USER}:${DEPLOY_USER}" "${GIT_DIR}"
