@@ -209,19 +209,19 @@ UnminedCustomMarkers = {
         point({
             x: -841,
             z: 1081,
-            text: "Slipperybutton's\nturtle\nfarm",
+            text: "Turtle farm",
             type: 'farm',
         }),
         point({
             x: 292,
             z: 1790,
-            text: "Slipperybutton's\nredstone\nfarm",
+            text: "Redstone farm",
             type: 'farm',
         }),
         point({
             x: -7450,
             z: 578,
-            text: "Slipperybutton's\nraid\nfarm",
+            text: "Raid farm",
             type: 'farm',
         }),
         point({
