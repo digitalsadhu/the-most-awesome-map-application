@@ -452,7 +452,7 @@ UnminedCustomMarkers = {
         point({
             x: -10880,
             z: -240,
-            text: "Ancient city",
+            text: "",
             type: 'ancientCity',
         }),
         point({
@@ -592,6 +592,12 @@ UnminedCustomMarkers = {
             z: 6236,
             text: "",
             type: "trialChamber",
+        }),
+        point({
+            x: -2815,
+            z: 9632,
+            text: "",
+            type: 'ancientCity',
         }),
         // do not delete the following two closing brackets
     ]
