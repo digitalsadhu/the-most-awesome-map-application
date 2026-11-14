@@ -436,7 +436,8 @@ UnminedCustomMarkers = {
         point({
             x: -10880,
             z: -240,
-            type: 'trialChamber',
+            text: "Ancient city",
+            type: 'other',
         }),
         point({
             x: 3370,
