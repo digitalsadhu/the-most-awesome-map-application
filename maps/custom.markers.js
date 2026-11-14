@@ -60,7 +60,6 @@ const PINS = {
     other: { image: 'other.png', name: "Miscellaneous" },
     trialChamber: { image: 'trial-chamber.png', name: "Trial chamber" },
     disassembledTrialChamber: { image: 'disassembled-chambers.png', name: "Dismanteled trial chamber" },
-    raidedBastion: {image: 'raided_bastion.png', name: "Raided Bastion"},
     ancientCity: {image: 'ancient_city.png', name: "Ancient City"},
 }
 
@@ -593,48 +592,6 @@ UnminedCustomMarkers = {
             z: 6236,
             text: "",
             type: "trialChamber",
-        }),
-        point({
-            x: -3361,
-            z: 2017,
-            text: "",
-            type: "raidedBastion",
-        }),
-        point({
-            x: -1640,
-            z: 1790,
-            text: "",
-            type: "raidedBastion",
-        }),
-        point({
-            x: -2012,
-            z: 1987,
-            text: "",
-            type: "raidedBastion",
-        }),
-        point({
-            x: -2686,
-            z: 1073,
-            text: "",
-            type: "raidedBastion",
-        }),
-        point({
-            x: -1822,
-            z: 1036,
-            text: "",
-            type: "raidedBastion",
-        }),
-        point({
-            x: -2012,
-            z: 1987,
-            text: "",
-            type: "raidedBastion",
-        }),
-        point({
-            x: -3206,
-            z: 202,
-            text: "",
-            type: "raidedBastion",
         }),
         // do not delete the following two closing brackets
     ]
