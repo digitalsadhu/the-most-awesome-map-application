@@ -190,6 +190,24 @@ UnminedCustomMarkers = {
             text: "",
             type: "raidedBastion",
         }),
+        point({
+            x: 699,
+            z: 471,
+            text: "",
+            type: "raidedBastion",
+        }),
+        point({
+            x: 1778,
+            z: 663,
+            text: "",
+            type: "raidedBastion",
+        }),
+        point({
+            x: 2129,
+            z: 802,
+            text: "",
+            type: "raidedBastion",
+        }),
         // do not delete the following two closing brackets
     ]
 }
