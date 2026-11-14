@@ -31,8 +31,23 @@ Things to keep in mind:
 * Property names are case sensitive (i.e. "textColor" is okay, "TextColor" is not)
 * There is a comma (",") at the end of each line except the opening brackets ("{")
 
+
+Adding new markers:
 You can use https://mapmarker.io/editor to generate custom pin images.
 Use the imageScale property if the pin image is too large.
+
+For concerns to keeping map markers consistent where they should, the following is recommended:
+* map marker style: awesome (shape of the marker)
+* icon style: fontawesome (style of icon)
+* marker size: 42px
+* content size: 15px
+* marker shadow: elipsis
+* resolution: 2x
+
+An alternative to mapmarker.io is Geoapify. The above settings should be already defined at: 
+https://apidocs.geoapify.com/playground/icon?type=awesome&icon=home&size=42&contentSize=15&color=%2306ab7e
+
+
 
 */
 
