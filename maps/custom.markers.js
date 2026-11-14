@@ -454,11 +454,6 @@ UnminedCustomMarkers = {
             type: 'trialChamber',
         }),
         point({
-            x: 785,
-            z: -1900,
-            type: 'trialChamber',
-        }),
-        point({
             x: 1280,
             z: -7282,
             type: 'trialChamber',
